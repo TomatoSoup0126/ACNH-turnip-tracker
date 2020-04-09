@@ -7,11 +7,11 @@
         <ul class="list-group list-group-flush">
           <li class="list-group-item">
             <label>上午</label> 
-            <input type="text" class="form-control" placeholder="$" :id="day.id">
+            <input type="number" class="form-control" placeholder="$" :id="day.id" v-model="day.price.AM">
           </li>
           <li class="list-group-item">
              <label>下午</label> 
-            <input type="text" class="form-control" placeholder="$" :id="day.id">
+            <input type="number" class="form-control" placeholder="$" :id="day.id" v-model="day.price.PM">
           </li>
         </ul>
 
@@ -26,7 +26,5 @@ export default {
       required: true
     }
   }
-
-  
 }
 </script>

@@ -2,7 +2,7 @@
   <div id="app">
     <navbar />
     <div class="container mt-3">
-      <purchaseCard />
+      <purchaseCard :purchasePrice="purchasePrice"/>
       <div class="card col-12">
      
       <div class="card-body row">
@@ -38,46 +38,67 @@ export default {
 
   data() {
     return {
-    purchasePrice:0,
+    purchasePrice:'',
 
     weekday:[
       {
         name:'週一',
         id:1,
-        price:0
+        price:{
+          AM:'',
+          PM:''
+        }
       },
 
       {
         name:'週二',
         id:2,
-        price:0
+        price:{
+          AM:'',
+          PM:''
+        }
+
       },
 
       {
         name:'週三',
         id:3,
-        price:0
+        price:{
+          AM:'',
+          PM:''
+        }
       },
 
       {
         name:'週四',
         id:4,
-        price:0
+        price:{
+          AM:'',
+          PM:''
+        }
       },
 
       {
         name:'週五',
         id:5,
-        price:0
+        price:{
+          AM:'',
+          PM:''
+        }
       },
 
       {
         name:'週六',
         id:6,
-        price:0
+        price:{
+          AM:'',
+          PM:''
+        }
       },
 
-    ]
+    ],
+
+    patten:[]
   }
     
   }
