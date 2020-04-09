@@ -2,17 +2,24 @@
   <div id="app">
     <navbar />
     <div class="container mt-3">
-      <div class="col-4">
+      <div class="row">
+        <div class="col-4">
 
-        <div class="input-group mb-3 ml-4">
-          <div class="input-group-prepend">
-            <span class="input-group-text" id="basic-addon1">週日買入價格</span>
+          <div class="input-group mb-3 ml-4">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">週日買入價格</span>
+            </div>
+            <input type="number" class="form-control" placeholder="＄" v-model.number="purchasePrice">
           </div>
-          <input type="number" class="form-control" placeholder="＄" v-model.number="purchasePrice">
+
+        </div>
+
+        <div class="col-8 pt-2">
+            <h5>{{prediction}}</h5>
         </div>
 
       </div>
-
+      
       <div class="card col-12">
      
         <div class="card-body row">
@@ -68,6 +75,32 @@ export default {
       }
 
       return currentWeek
+    },
+
+    prediction: function(){
+
+      if (this.chartData.rows[0]['價錢'] === ''){
+
+        return '請輸入買入/賣出價格開始進行預測...'
+
+      }else{
+        
+        let startPercent = this.chartData.rows[0]['價錢']/this.purchasePrice
+
+        if (startPercent > 0.9) {
+          return '可能為波形、三期型或四期型'
+        } else if(startPercent > 0.85 && startPercent < 0.9){
+          return '可能為三期型、四期型或遞減型'
+        } else if(startPercent > 0.8 && startPercent < 0.85){
+          return '可能為四期型'
+        } else if(startPercent > 0.6 && startPercent < 0.8){
+          return '可能為波型或四期型'
+        } else {
+          return '可能為四期型'
+        }
+          
+      }
+
     }
 
   },
