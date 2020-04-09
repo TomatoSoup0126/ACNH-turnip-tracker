@@ -1,10 +1,11 @@
 <template>
   <div id="app">
     <navbar />
-    
-    <img alt="Vue logo" src="./assets/logo.png">
+    <div class="container mt-3">
+      <priceCard />
+    </div>
    
-    <priceCard />
+
   </div>
 </template>
 
