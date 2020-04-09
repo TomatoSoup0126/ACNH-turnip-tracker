@@ -24,11 +24,11 @@
             <ul class="list-group list-group-flush">
               <li class="list-group-item">
                 <label>上午</label> 
-                <input type="number" class="form-control" placeholder="$" v-model="input[i*2+1]">
+                <input type="number" class="form-control" placeholder="$" v-model="chartData.rows[i*2]['價錢']">
               </li>
               <li class="list-group-item">
                 <label>下午</label> 
-                <input type="number" class="form-control" placeholder="$" v-model="input[i*2+2]">
+                <input type="number" class="form-control" placeholder="$" v-model="chartData.rows[i*2+1]['價錢']">
               </li>
             </ul>
 
@@ -78,12 +78,6 @@ export default {
         max: 700
       }
 
-    this.chartSettings = {
-
-        dataType: function (v) {
-          return '$' + v
-        }
-      }
 
     return {
 
@@ -93,39 +87,21 @@ export default {
 
     patten:[],
     
-
     chartData: {
-      columns: ['日期', '賣價'],
+      columns: ['日期', '價錢'],
       rows: [
-        { 
-          '日期': '週一 AM', 
-          '賣價': 0 
-        },
-
-        { 
-          '日期': '週一 PM', 
-          '賣價': 0 
-        },
-
-        { 
-          '日期': '週二', 
-          '賣價': 0 
-        },
-
-        { 
-          '日期': '週四',
-          '賣價': 0 
-        },
-
-        { 
-          '日期': '週五',
-          '賣價': 0 
-        },
-
-        { 
-          '日期': '週六',
-          '賣價': 0 
-        }
+        { '日期': '週一上午', '價錢': '' },
+        { '日期': '週一下午', '價錢': '' },
+        { '日期': '週二上午', '價錢': '' },
+        { '日期': '週二下午', '價錢': '' },
+        { '日期': '週三上午', '價錢': '' },
+        { '日期': '週三下午', '價錢': '' },
+        { '日期': '週四上午', '價錢': '' },
+        { '日期': '週四下午', '價錢': '' },
+        { '日期': '週五上午', '價錢': '' },
+        { '日期': '週五下午', '價錢': '' },
+        { '日期': '週六上午', '價錢': '' },
+        { '日期': '週六下午', '價錢': '' }
       ]
     }
   }
